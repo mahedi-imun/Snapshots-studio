@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import logo from '../../../images/logo.png'
 const Header = () => {
     return (
-        <Navbar   collapseOnSelect expand="lg" bg="dark" variant="dark">
+        <Navbar sticky="top"  collapseOnSelect expand="lg" bg="dark" variant="dark">
             <Container  >
                 <Navbar.Brand as={Link} to="/">
                     <img style={{ width: '150px' }} 
