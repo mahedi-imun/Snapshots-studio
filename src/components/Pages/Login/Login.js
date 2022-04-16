@@ -1,14 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import auth from '../../../Firebase.init';
-import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { signInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import googleLogo from '../../../images/google-logo.png'
 const Login = () => {
     const [signInWithGoogle, googleUser, GoogleLoading, googleError] = useSignInWithGoogle(auth);
 
     const handleFromSubmit = (e) => {
         e.preventDefault()
-        // useSignInWithEmailAndPassword()
+        // signInWithEmailAndPassword()
 
     }
     return (
