@@ -1,10 +1,10 @@
 import React from 'react';
 import { Container, Nav, Navbar, } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import logo from '../../../images/loog.png'
+import logo from '../../../images/logo.png'
 const Header = () => {
     return (
-        <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+        <Navbar   collapseOnSelect expand="lg" bg="dark" variant="dark">
             <Container  >
                 <Navbar.Brand as={Link} to="/">
                     <img style={{ width: '150px' }} 
