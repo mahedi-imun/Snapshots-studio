@@ -32,7 +32,7 @@ const images=[
         <div className='container'>
             <h4 style={{color:'#000'}} className='text-center  my-5'>My Works</h4>
             <div data-aos="zoom-in-down " >
-                <ResponsiveGallery  images={images}/>
+                <ResponsiveGallery images={images}/>
             </div>
         </div>
     );
