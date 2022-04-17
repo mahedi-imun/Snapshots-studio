@@ -86,7 +86,7 @@ const SignUp = () => {
             <button
                 onClick={() => signInWithGoogle()}
                 style={{ fontWeight: '600' }}
-                className='w-25 btn bold border'>
+                className='w-25 btn bold border mb-5'>
                 <img style={{ width: '40px' }}
                     src={googleLogo} alt="" />
                 continue with google</button>
