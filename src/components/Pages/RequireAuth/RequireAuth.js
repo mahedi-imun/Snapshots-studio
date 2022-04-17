@@ -10,7 +10,9 @@ const RequireAuth = ({children}) => {
     if (loading) {
         return (
           <div>
+            <div className='d-flex justify-content-center'>
             <Spinner animation="border" />
+            </div>
           </div>
         );
       }

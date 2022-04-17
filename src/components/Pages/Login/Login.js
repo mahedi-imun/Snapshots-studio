@@ -4,6 +4,7 @@ import auth from '../../../Firebase.init';
 import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import googleLogo from '../../../images/google-logo.png'
 import { async } from '@firebase/util';
+import { Spinner } from 'react-bootstrap';
 const Login = () => {
     const location = useLocation()
     const navigate = useNavigate()
@@ -23,9 +24,9 @@ const Login = () => {
         errorElement = <p className='text-danger'>Error: {error.message}</p>;
     }
     if (loading) {
-        return <p>Loading...</p>;
+        return <Spinner animation="border" />
     }
-    if(user){
+    if (user) {
         navigate(from, { replace: true });
     }
     const handleGoogleLogin = async () => {
@@ -49,10 +50,11 @@ const Login = () => {
                     style={{ backgroundColor: "#dfe6e9" }} className='mb-3 p-2 w-25  border-0'
                     type="email" name="email" placeholder='email' required />
 
-                <input style={{ backgroundColor: "#dfe6e9" }} className='mb-3 p-2 w-25  border-0' type="password" name="password" placeholder='password'required  />
+                <input style={{ backgroundColor: "#dfe6e9" }} className='mb-3 p-2 w-25  border-0' type="password" name="password" placeholder='password' required />
                 {errorElement ? errorElement : ''}
                 <input style={{ backgroundColor: "#000", color: '#fdee17' }} className='w-25 btn ' type="submit" value="Login" />
             </form>
+            <p><Link style={{ color: '#000' }} to='/forgotPassword'>forgot password ?</Link> </p>
             <p className='mt-2'> if you don't have account ? <Link className=''
                 style={{ color: "#000" }}
                 to='/signup'>signup</Link></p>

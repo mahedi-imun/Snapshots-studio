@@ -2,16 +2,20 @@
 import { Spinner } from 'react-bootstrap';
 import { useSignInWithGoogle, useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
 
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 import auth from '../../../Firebase.init';
 import googleLogo from '../../../images/google-logo.png'
 const SignUp = () => {
-    let errorElement;
+    const location = useLocation()
     const navigate = useNavigate()
+    const from = location.state?.from?.pathname || "/";
+    let errorElement;
+
     const [
         signInWithGoogle, googleUser,
-         googleLoading, googleError
-        ] = useSignInWithGoogle(auth);
+        googleLoading, googleError
+    ] = useSignInWithGoogle(auth);
     const [
         createUserWithEmailAndPassword,
         user,
@@ -24,13 +28,13 @@ const SignUp = () => {
     }
     if (loading || googleLoading) {
         return (
-          <div className='d-flex justify-content-center align-item-center'>
-            <div><Spinner animation="border" /></div>
-          </div>
+            <div >
+                <Spinner animation="border" />
+            </div>
         );
-      }
-    if(user || googleUser){
-        navigate('/home')
+    }
+    if (user || googleUser) {
+        navigate(from, { replace: true })
     }
 
     const handleFormSubmit = async (event) => {
@@ -43,7 +47,13 @@ const SignUp = () => {
             await createUserWithEmailAndPassword(email, password)
             await updateProfile({ displayName: name });
         } else {
-            alert('pass mitchmatch')
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'password mismatch!',
+
+            })
+
         }
 
     }
@@ -64,6 +74,7 @@ const SignUp = () => {
                 <input style={{ backgroundColor: "#dfe6e9" }} className='mb-3 p-2 w-25  border-0' type="password" name="password" placeholder='password' required />
                 <input style={{ backgroundColor: "#dfe6e9" }} className='mb-3 p-2 w-25  border-0' type="password" name="confirmPassword" placeholder='confirm password' required />
                 {errorElement ? errorElement : ''}
+
                 <input style={{ backgroundColor: "#000", color: '#fdee17' }} className='w-25 btn ' type="submit" value="Sign Up" />
             </form>
             <p className='mt-2'>  already have an account ? <Link className=''
