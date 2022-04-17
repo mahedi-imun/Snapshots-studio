@@ -4,8 +4,8 @@ const About = () => {
     return (
         <div className='container mb-5'>
             <h4 className='text-center mt-3 '>About me</h4>
-            <div className='d-flex flex-wrap '>
-                <div className='w-50 d-flex flex-wrap flex-column justify-content-center align-items-start pe-4 '>
+            <div className='d-md-flex  '>
+                <div className='w-md-50 d-flex flex-wrap flex-column justify-content-center align-items-start pe-4 '>
                     <h4>I am mahedi a  baby web developer</h4>
                     <h6>I already learned the  HTML, CSS,JAVASCRIPT , REACT , REACT ROUTER , FIREBASE AUTHENTICATION.</h6>
                     <p>I can build any  website. I can even teach my grandma how to make  website. My goal is do job professional software company and learn advanced topics.</p>
@@ -14,7 +14,7 @@ const About = () => {
                     </p>
                         
                 </div>
-                <div className='w-50 d-flex justify-content-center align-items-center' >
+                <div className='w-md-50 d-flex justify-content-center align-items-center' >
                     <img className='w-100' src={aboutImg1} alt="" />
                 </div>
             </div>

@@ -64,17 +64,17 @@ const SignUp = () => {
                 className='d-flex align-items-center flex-column w-100 bo' >
                 <input
 
-                    style={{ backgroundColor: "#dfe6e9" }} className='mb-3 p-2 w-25  border-0'
+                    style={{ backgroundColor: "#dfe6e9" }} className='mb-3 p-2 w-50  border-0'
                     type="text" name="name" placeholder='name' required />
                 <input
-                    style={{ backgroundColor: "#dfe6e9" }} className='mb-3 p-2 w-25  border-0'
+                    style={{ backgroundColor: "#dfe6e9" }} className='mb-3 p-2 w-50  border-0'
                     type="email" name="email" placeholder='email' required />
 
-                <input style={{ backgroundColor: "#dfe6e9" }} className='mb-3 p-2 w-25  border-0' type="password" name="password" placeholder='password' required />
-                <input style={{ backgroundColor: "#dfe6e9" }} className='mb-3 p-2 w-25  border-0' type="password" name="confirmPassword" placeholder='confirm password' required />
+                <input style={{ backgroundColor: "#dfe6e9" }} className='mb-3 p-2 w-50  border-0' type="password" name="password" placeholder='password' required />
+                <input style={{ backgroundColor: "#dfe6e9" }} className='mb-3 p-2 w-50  border-0' type="password" name="confirmPassword" placeholder='confirm password' required />
                 {errorElement ? errorElement : ''}
 
-                <input style={{ backgroundColor: "#000", color: '#fdee17' }} className='w-25 btn ' type="submit" value="Sign Up" />
+                <input style={{ backgroundColor: "#000", color: '#fdee17' }} className='w-50 btn ' type="submit" value="Sign Up" />
             </form>
             <p className='mt-2'>
                 already have an account ?
@@ -86,7 +86,7 @@ const SignUp = () => {
             <button
                 onClick={() => signInWithGoogle()}
                 style={{ fontWeight: '600' }}
-                className='w-25 btn bold border mb-5'>
+                className='w-50 btn bold border mb-5'>
                 <img style={{ width: '40px' }}
                     src={googleLogo} alt="" />
                 continue with google</button>

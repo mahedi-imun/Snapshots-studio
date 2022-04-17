@@ -51,14 +51,14 @@ const Login = () => {
             <div className='mb-3'><h4>Login</h4> </div>
             <form
                 onSubmit={handleFromSubmit}
-                className='d-flex align-items-center flex-column w-100 bo' >
+                className='d-flex align-items-center flex-column w-50 bo' >
                 <input
-                    style={{ backgroundColor: "#dfe6e9" }} className='mb-3 p-2 w-25  border-0'
+                    style={{ backgroundColor: "#dfe6e9" }} className='mb-3 p-2 w-100  border-0'
                     type="email" name="email" placeholder='email' required />
 
-                <input style={{ backgroundColor: "#dfe6e9" }} className='mb-3 p-2 w-25  border-0' type="password" name="password" placeholder='password' required />
+                <input style={{ backgroundColor: "#dfe6e9" }} className='mb-3 p-2 w-100  border-0' type="password" name="password" placeholder='password' required />
                 {errorElement ? errorElement : ''}
-                <input style={{ backgroundColor: "#000", color: '#fdee17' }} className='w-25 btn ' type="submit" value="Login" />
+                <input style={{ backgroundColor: "#000", color: '#fdee17' }} className='w-100 btn ' type="submit" value="Login" />
             </form>
             <p><Link style={{ color: '#000' }} to='/forgotPassword'>forgot password ?</Link> </p>
             <p className='mt-2'> if you don't have account ? <Link className=''
@@ -67,7 +67,7 @@ const Login = () => {
             <button
                 onClick={() => handleGoogleLogin()}
                 style={{ fontWeight: '600' }}
-                className='w-25 btn bold border'>
+                className='w-50 btn bold border'>
                 <img style={{ width: '40px' }} src={googleLogo} alt="" />
                 continue with google</button>
         </div>
