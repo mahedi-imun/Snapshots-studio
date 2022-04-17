@@ -1,13 +1,22 @@
 import React from 'react';
-import { Container, Nav, Navbar, } from 'react-bootstrap';
+import { Container, Nav, Navbar, Spinner, } from 'react-bootstrap';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import {  signOut } from 'firebase/auth';
+import { signOut } from 'firebase/auth';
 import { Link } from 'react-router-dom';
 import auth from '../../../Firebase.init';
 import logo from '../../../images/logo.png'
 const Header = () => {
     const [user, loading, error] = useAuthState(auth);
-
+    if (loading) {
+        return (
+            <div>
+                <div className='d-flex justify-content-center'>
+                    <Spinner animation="border" />
+                </div>
+            </div>
+        );
+        
+    }
     return (
         <Navbar sticky="top" collapseOnSelect expand="lg" bg="dark" variant="dark">
             <Container  >
@@ -22,10 +31,15 @@ const Header = () => {
                         <Nav.Link as={Link} to="/blogs">Blogs</Nav.Link>
                     </Nav>
                     <Nav>
-                        {user ? <button 
-                        onClick={()=>signOut(auth)}
-                        style={{ backgroundColor: '#fdee18', color: '#222f3e' }}
-                            className='border-0 fs-5 rounded-1'> logout</button> :
+                        {user ?
+                            <>
+                                <h6 className='text-light text-capitalize mx-2 mt-2'>{user?.displayName}</h6>
+                                <button
+                                    onClick={() => signOut(auth)}
+                                    style={{ backgroundColor: '#fdee18', color: '#222f3e' }}
+                                    className='border-0 fs-5 rounded-1'> logout</button>
+                            </>
+                            :
                             <>
                                 <Nav.Link className='fs-5 font-weight-bold'
                                     as={Link}

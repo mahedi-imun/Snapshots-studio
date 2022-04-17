@@ -2,8 +2,8 @@ import React from 'react';
 import aboutImg1 from '../../../images/about me/about-me-1.png'
 const About = () => {
     return (
-        <div className='container'>
-            <h4 className='text-center mt-3'>About me</h4>
+        <div className='container mb-5'>
+            <h4 className='text-center mt-3 '>About me</h4>
             <div className='d-flex flex-wrap '>
                 <div className='w-50 d-flex flex-wrap flex-column justify-content-center align-items-start pe-4 '>
                     <h4>I am mahedi a  baby web developer</h4>

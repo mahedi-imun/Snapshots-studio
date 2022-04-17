@@ -28,8 +28,10 @@ const SignUp = () => {
     }
     if (loading || googleLoading) {
         return (
-            <div >
-                <Spinner animation="border" />
+            <div>
+                <div className='d-flex justify-content-center'>
+                    <Spinner animation="border" />
+                </div>
             </div>
         );
     }
@@ -51,11 +53,8 @@ const SignUp = () => {
                 icon: 'error',
                 title: 'Oops...',
                 text: 'password mismatch!',
-
             })
-
         }
-
     }
     return (
         <div className='container d-flex align-items-center flex-column mt-3 '>
@@ -77,14 +76,19 @@ const SignUp = () => {
 
                 <input style={{ backgroundColor: "#000", color: '#fdee17' }} className='w-25 btn ' type="submit" value="Sign Up" />
             </form>
-            <p className='mt-2'>  already have an account ? <Link className=''
-                style={{ color: "#000" }}
-                to='/login'>Login</Link></p>
+            <p className='mt-2'>
+                already have an account ?
+                <Link
+                    style={{ color: "#000" }}
+                    to='/login'>Login
+                </Link>
+            </p>
             <button
                 onClick={() => signInWithGoogle()}
                 style={{ fontWeight: '600' }}
                 className='w-25 btn bold border'>
-                <img style={{ width: '40px' }} src={googleLogo} alt="" />
+                <img style={{ width: '40px' }}
+                    src={googleLogo} alt="" />
                 continue with google</button>
         </div>
     );

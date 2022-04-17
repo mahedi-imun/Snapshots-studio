@@ -16,11 +16,11 @@ const ForgotPassword = () => {
         
     }
     return (
-        <div className='text-center mt-5 '>
+        <div style={{height:'100vh'}} className='text-center mt-5 '>
             <h4 className='mb-2'>forgot your password</h4>
             <form onSubmit={handleForgotPass} >
-                <input style={{ backgroundColor: "#dfe6e9" }} className='mb-3 p-2 w-25  border-0' type="email" name="email" placeholder='enter your email ' required />
-                <input style={{ backgroundColor: "#000", color: '#fdee17' }} className=' btn p-2 ' type="submit" value="reset" />
+                <input style={{ backgroundColor: "#dfe6e9" }} className=' p-1 rounded w-25  border-0' type="email" name="email" placeholder='enter your email ' required />
+                <input style={{ backgroundColor: "#000", color: '#fdee17' }} className=' rounded p-2 border-0' type="submit" value="forgot" />
             </form>
             <ToastContainer />
         </div>

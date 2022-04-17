@@ -24,7 +24,13 @@ const Login = () => {
         errorElement = <p className='text-danger'>Error: {error.message}</p>;
     }
     if (loading) {
-        return <Spinner animation="border" />
+        return (
+            <div>
+                <div className='d-flex justify-content-center'>
+                    <Spinner animation="border" />
+                </div>
+            </div>
+        )
     }
     if (user) {
         navigate(from, { replace: true });

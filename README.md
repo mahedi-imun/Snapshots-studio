@@ -19,3 +19,4 @@ this is my project link [Snapshots studio](https://snapshots-studio.web.app/).
     * react toast
     * react router v6
     * firebase hoisting
+    * aos animation
