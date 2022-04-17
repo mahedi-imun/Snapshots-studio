@@ -1,6 +1,5 @@
 import React from 'react';
 import AOS from 'aos';
-import 'aos/dist/aos.css'; 
 import 'aos/dist/aos.css';
 import serviceImg1 from '../../../../images/services/service1.jpg'
 import serviceImg2 from '../../../../images/services/service2.jpg'
@@ -33,10 +32,11 @@ const Services = () => {
     // animation init 
     AOS.init();
     return (
-        <div data-aos="fade-down"
+        <div style={{backgroundColor:"black"}}
+        data-aos="fade-down"
         data-aos-easing="linear"
         data-aos-duration="1500" >
-            <h4 style={{color:'#FDEE17'}} className='text-center mt-5 mb-5'>My Services</h4>
+            <h4 style={{color:'#FDEE17'}} className='text-center  p-5'>My Services</h4>
             <div  className='d-flex flex-wrap justify-content-around text-center container  mx-auto'>
                 {
                     services.map(service =><Service
