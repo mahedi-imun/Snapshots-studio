@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+
+import { Spinner } from 'react-bootstrap';
 import { useSignInWithGoogle, useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
 
 import { Link, useNavigate } from 'react-router-dom';
@@ -7,7 +8,10 @@ import googleLogo from '../../../images/google-logo.png'
 const SignUp = () => {
     let errorElement;
     const navigate = useNavigate()
-    const [signInWithGoogle, googleUser, GoogleLoading, googleError] = useSignInWithGoogle(auth);
+    const [
+        signInWithGoogle, googleUser,
+         googleLoading, googleError
+        ] = useSignInWithGoogle(auth);
     const [
         createUserWithEmailAndPassword,
         user,
@@ -18,23 +22,30 @@ const SignUp = () => {
     if (error || googleError) {
         errorElement = <p className='text-danger'>Error: {error.message}</p>;
     }
+    if (loading || googleLoading) {
+        return (
+          <div className='d-flex justify-content-center align-item-center'>
+            <div><Spinner animation="border" /></div>
+          </div>
+        );
+      }
+    if(user || googleUser){
+        navigate('/home')
+    }
+
     const handleFormSubmit = async (event) => {
         event.preventDefault()
         const name = event.target.name.value;
         const email = event.target.email.value;
         const password = event.target.password.value;
         const confirmPassword = event.target.confirmPassword.value;
-        if (password !== confirmPassword) {
-
-        }
-        if (email && password && name) {
+        if (password === confirmPassword) {
             await createUserWithEmailAndPassword(email, password)
             await updateProfile({ displayName: name });
-            alert('successful create account');
-            // navigate('/home')
         } else {
-            alert('please full fill all input')
+            alert('pass mitchmatch')
         }
+
     }
     return (
         <div className='container d-flex align-items-center flex-column mt-3 '>
@@ -45,13 +56,13 @@ const SignUp = () => {
                 <input
 
                     style={{ backgroundColor: "#dfe6e9" }} className='mb-3 p-2 w-25  border-0'
-                    type="text" name="name" placeholder='name' />
+                    type="text" name="name" placeholder='name' required />
                 <input
                     style={{ backgroundColor: "#dfe6e9" }} className='mb-3 p-2 w-25  border-0'
-                    type="email" name="email" placeholder='email' />
+                    type="email" name="email" placeholder='email' required />
 
-                <input style={{ backgroundColor: "#dfe6e9" }} className='mb-3 p-2 w-25  border-0' type="password" name="password" placeholder='password' />
-                <input style={{ backgroundColor: "#dfe6e9" }} className='mb-3 p-2 w-25  border-0' type="password" name="confirmPassword" placeholder='confirm password' />
+                <input style={{ backgroundColor: "#dfe6e9" }} className='mb-3 p-2 w-25  border-0' type="password" name="password" placeholder='password' required />
+                <input style={{ backgroundColor: "#dfe6e9" }} className='mb-3 p-2 w-25  border-0' type="password" name="confirmPassword" placeholder='confirm password' required />
                 {errorElement ? errorElement : ''}
                 <input style={{ backgroundColor: "#000", color: '#fdee17' }} className='w-25 btn ' type="submit" value="Sign Up" />
             </form>

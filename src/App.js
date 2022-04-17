@@ -10,17 +10,22 @@ import About from './components/Pages/About/About';
 import CheckOut from './components/Pages/CheckOut/CheckOut';
 import Login from './components/Pages/Login/Login';
 import SignUp from './components/Pages/SignUp/SignUp';
+import RequireAuth from './components/Pages/RequireAuth/RequireAuth';
 function App() {
   return (
     <div className="App">
       <Header></Header>
-      
+
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>
         <Route path='/home' element={<Home></Home>}></Route>
         <Route path='/about' element={<About></About>}></Route>
-        <Route path='/checkout' element={<CheckOut/>}></Route>
-        <Route path='/login' element={<Login/>}></Route>
+        <Route path='/checkout' element={
+          <RequireAuth>
+            <CheckOut />
+          </RequireAuth>
+        }></Route>
+        <Route path='/login' element={<Login />}></Route>
         <Route path='/signup' element={<SignUp></SignUp>}></Route>
 
 
