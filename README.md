@@ -20,3 +20,4 @@ this is my project link [Snapshots studio](https://snapshots-studio.web.app/).
     * react router v6
     * firebase hoisting
     * aos animation
+    * react-leaflet
